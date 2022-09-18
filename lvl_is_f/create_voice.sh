@@ -3,13 +3,13 @@ DATADIR=${1:"/data/tts/talromur/published/f"}
 
 rm -r wav nwav prompt-utt prompt-lab ehmm \
     lab pm mcep f0 \
-    festival/dur/feats festival/dur/data \
-    festival/feats festival/trees festival/utts
+    festival/dur/feats festival/dur/data festival/dur/tree \
+    festival/feats festival/trees festival/utts festival/disttabs
 
 mkdir -p wav prompt-utt prompt-lab \
     lab pm mcep f0 \
-    festival/dur/feats festival/dur/data \
-    festival/feats festival/trees festival/utts
+    festival/dur/feats festival/dur/data festival/dur/tree \
+    festival/feats festival/trees festival/utts festival/disttabs
 
 awk -v data_dir=/data/tts/talromur/published/f '{print data_dir"/audio/"$2".wav"}' etc/txt.done.data | xargs bin/get_wavs
 
