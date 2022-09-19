@@ -1,13 +1,14 @@
 #!/bin/bash
-DATADIR=${1:"/data/tts/talromur/published/f"}
+DATADIR="/data/tts/talromur/published/f"
+export FLITEDIR="/scratch/gunnar/Flite"
 
 rm -r wav nwav prompt-utt prompt-lab ehmm \
-    lab pm mcep f0 \
+    lab pm mcep f0 lpc \
     festival/dur/feats festival/dur/data festival/dur/tree \
     festival/feats festival/trees festival/utts festival/disttabs
 
 mkdir -p wav prompt-utt prompt-lab \
-    lab pm mcep f0 \
+    lab pm mcep f0 lpc \
     festival/dur/feats festival/dur/data festival/dur/tree \
     festival/feats festival/trees festival/utts festival/disttabs
 
@@ -29,3 +30,14 @@ bin/add_noise etc/txt.done.data
 ./bin/do_build do_dur
 
 ./bin/do_build build_clunits
+
+$FLITEDIR/bin/setup_flite
+
+
+./bin/build_flite
+cd flite
+
+sed -i 's/cmu_is_/lvl_is_/g' lvl_is_f.c
+sed -i 's/cmu_is_/lvl_is_/g' Makefile
+
+make
