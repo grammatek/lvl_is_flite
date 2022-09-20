@@ -1,6 +1,6 @@
 #!/bin/bash
-DATADIR="/data/tts/talromur/published/f"
-export FLITEDIR="/scratch/gunnar/Flite"
+DATADIR=${DATADIR:-/data/tts/talromur/published/f}
+export FLITEDIR=${FLITEDIR:-/scratch/gunnar/Flite}
 
 rm -r wav nwav prompt-utt prompt-lab ehmm \
     lab pm mcep f0 lpc \
