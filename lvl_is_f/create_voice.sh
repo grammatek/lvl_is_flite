@@ -12,7 +12,7 @@ mkdir -p wav prompt-utt prompt-lab \
     festival/dur/feats festival/dur/data festival/dur/tree \
     festival/feats festival/trees festival/utts festival/disttabs
 
-awk -v data_dir=/data/tts/talromur/published/f '{print data_dir"/audio/"$2".wav"}' etc/txt.done.data | xargs bin/get_wavs
+awk -v data_dir=${DATADIR} '{print data_dir"/audio/"$2".wav"}' etc/txt.done.data | xargs bin/get_wavs
 
 # Add random noise to audio (see script for more info)
 # Note that dithering is here a precaution to prevent signal processing algos from failing
