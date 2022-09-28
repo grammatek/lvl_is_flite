@@ -56,13 +56,13 @@ struct voice_drv_info_t
 void* voice_driver_init();
 
 /**
- * Converts given phonemes to audio and returns it into given buffer as RIFF format.
+ * Converts given phonemes to audio and returns it into given buffer as PCM format.
  * The exact specification of the audio can be queried via @ref voice_driver_info().
  *
- * @param handle         handle returned by voice_driver_init()
+ * @param handle         Handle returned by voice_driver_init()
  * @param phonemes       Phoneme string according to FLITE g2p alphabet
  * @param duration[out]  Returns the duration in seconds of the returned audio
- * @param buf[out]       Returns the audio to the pointer buf as RIFF (wav)
+ * @param buf[out]       Returns the audio to the pointer buf as PCM
  * @param buf_size       Size in bytes of given parameter buf
  *
  * @return  size of bytes written into the buffer, or -1 in case of an error
@@ -79,9 +79,11 @@ ssize_t voice_driver_speak(void* handle, const char* phonemes, float* duration, 
 struct voice_drv_info_t voice_driver_info(void* handle);
 
 /**
- * Cleans up driver. After calling this function, the handle returned by voice_driver_init()
+ * Cleans up driver. After calling this function, the given handle
  * is invalidated.
+ *
+ * @param handle         Handle returned by voice_driver_init()
  */
-void voice_driver_cleanup();
+void voice_driver_cleanup(void* handle);
 
 #endif // FLITE_VOICE_DRIVER_H
