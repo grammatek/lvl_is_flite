@@ -99,12 +99,8 @@ RUN ./configure && make
 WORKDIR /usr/local/src/festival
 RUN ./configure && make
 
-# DS: ext/ehmm_patch, for clustergen voices
-RUN git clone https://github.com/lumpidu/unit-selection-festival.git && cp -r unit-selection-festival/ext /usr/local/src/ext
-
 # Build Festvox
 WORKDIR /usr/local/src/festvox
-RUN cp /usr/local/src/ext/ehmm_patch/do_ehmm ./src/ehmm/scripts/
 RUN ./configure && make
 
 # Setup & build Flite for Linux, Festival needs executables built here for exporting a Flite voice
