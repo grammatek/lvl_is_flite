@@ -1,0 +1,35 @@
+FROM festvox-build-tools:latest
+
+ENV LC_ALL C.UTF-8
+
+# Download Álfur voice from Clarin/Talrómur
+# Note: we could also use any other voice from that voice corpus
+ENV TALROMUR=/data/tts/talromur/published
+RUN mkdir -p $TALROMUR && cd $TALROMUR \
+    && curl -L "https://repository.clarin.is/repository/xmlui/bitstream/handle/20.500.12537/104/alfur.zip?sequence=5&isAllowed=y" --output alfur.zip \
+    && unzip alfur.zip && rm alfur.zip
+
+WORKDIR /usr/local/src
+
+# Export relevant build variables
+ENV ESTDIR /usr/local/src/speech_tools
+ENV FESTVOXDIR /usr/local/src/festvox
+ENV SPTKDIR /usr/local/src/SPTK
+ENV FLITEDIR /usr/local/src/Flite
+
+# add lvl_is_flite repo and build voice via Festival for Linux Docker first
+# The voice deliverables are generated C-Source code, that is compiled as a final step and linked
+# together with the Flite library built in the previous step
+COPY lvl_is_f /usr/local/src/lvl_is_f
+
+# This takes > 1.5 hours and generates a lot of logs ...
+RUN cd lvl_is_f && ./create_voice.sh
+
+# build voice for all Android platforms as shared objects and add the
+# voice driver to them.
+# This cross-compiles first the Flite project for the appropriated
+# Android platform and then the voice files generated in the previous steps.
+# This is done for each Android platform
+COPY voice_driver/ /usr/local/src/lvl_is_f/voice_driver
+COPY voice_info.json /usr/local/src/lvl_is_f/voice_deliverables/voice_info.json
+RUN cd /usr/local/src/lvl_is_f && ./voice_driver/create_voice_android.sh

@@ -68,3 +68,5 @@ ignore_*/
 
 *.err
 *.log
+
+voice_deliverables/

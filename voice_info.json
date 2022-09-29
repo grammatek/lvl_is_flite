@@ -1,0 +1,55 @@
+{
+"Description": "Álfur voice for release 0.1 (M9)",
+"Voices" : [
+  {
+    "Name": "Álfur hratt",
+    "InternalName": "Alfur_flite",
+    "Description": "Álfur Flite unit selection voice",
+    "Language": "is-IS",
+    "LanguageName": "Íslenska",
+    "Gender": "male",
+    "Type": "flite",
+    "Version": "0.1",
+    "RTF": "100",
+    "Quality": "3",
+    "Files": [
+      {
+        "Description": "Flite clunit",
+        "CompressedFile": "aarch64-linux-android.zip",
+        "Path": "aarch64-linux-android/liblvl_is_f.so",
+        "Platform": "aarch64",
+        "Type": "clunit",
+        "PhonemeType": "flite",
+        "Md5Sum": "MD5SUM_aarch64-linux-android"
+      },
+      {
+        "Description": "Flite clunit",
+        "CompressedFile": "armv7a-linux-androideabi.zip",
+        "Path": "armv7a-linux-androideabi/liblvl_is_f.so",
+        "Platform": "armv7a",
+        "Type": "clunit",
+        "PhonemeType": "flite",
+        "Md5Sum": "MD5SUM_armv7a-linux-androideabi"
+      },
+      {
+        "Description": "Flite clunit",
+        "CompressedFile": "i686-linux-android.zip",
+        "Path": "i686-linux-android/liblvl_is_f.so",
+        "Platform": "i686",
+        "Type": "clunit",
+        "PhonemeType": "flite",
+        "Md5Sum": "MD5SUM_i686-linux-android"
+      },
+      {
+        "Description": "Flite clunit",
+        "CompressedFile": "x86_64-linux-android.zip",
+        "Path": "x86_64-linux-android/liblvl_is_f.so",
+        "Platform": "x86_64",
+        "Type": "clunit",
+        "PhonemeType": "flite",
+        "Md5Sum": "MD5SUM_x86_64-linux-android"
+      }
+    ]
+  }
+]
+}

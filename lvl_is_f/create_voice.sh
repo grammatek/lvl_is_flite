@@ -2,7 +2,7 @@
 DATADIR=${DATADIR:-/data/tts/talromur/published/f}
 export FLITEDIR=${FLITEDIR:-/scratch/gunnar/Flite}
 
-rm -r wav nwav prompt-utt prompt-lab ehmm \
+rm -r wav nwav prompt-utt prompt-lab \
     lab pm mcep f0 lpc \
     festival/dur/feats festival/dur/data festival/dur/tree \
     festival/feats festival/trees festival/utts festival/disttabs
