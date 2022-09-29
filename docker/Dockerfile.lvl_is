@@ -20,15 +20,16 @@ ENV FLITEDIR /usr/local/src/Flite
 # add lvl_is_flite repo and build voice via Festival for Linux Docker first
 # The voice deliverables are generated C-Source code, that is compiled as a final step and linked
 # together with the Flite library built in the previous step
-COPY . /usr/local/src/lvl_is_flite
-# We need this at another place
-RUN rm -rf /usr/local/src/lvl_is_flite/voice_driver
-RUN cd lvl_is_flite/lvl_is_f && ./create_voice.sh
+COPY lvl_is_f /usr/local/src/lvl_is_f
+
+# This takes > 1.5 hours and generates a lot of logs ...
+RUN cd lvl_is_f && ./create_voice.sh
 
 # build voice for all Android platforms as shared objects and add the
 # voice driver to them.
 # This cross-compiles first the Flite project for the appropriated
 # Android platform and then the voice files generated in the previous steps.
 # This is done for each Android platform
-COPY voice_driver/ /usr/local/src/lvl_is_flite/lvl_is_f/voice_driver
-RUN cd /usr/local/src/lvl_is_flite/lvl_is_f && ./voice_driver/create_voice_android.sh
+COPY voice_driver/ /usr/local/src/lvl_is_f/voice_driver
+COPY voice_info.json /usr/local/src/lvl_is_f/voice_deliverables/voice_info.json
+RUN cd /usr/local/src/lvl_is_f && ./voice_driver/create_voice_android.sh

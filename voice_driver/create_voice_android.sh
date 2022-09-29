@@ -33,6 +33,8 @@ do
   export NM=$ANDROID_NDK_TOOLCHAIN/bin/nm
   export RANLIB=$ANDROID_NDK_TOOLCHAIN/bin/llvm-ranlib
   export STRIP=$ANDROID_NDK_TOOLCHAIN/bin/llvm-strip
+  # Set this to your minSdkVersion.
+  export API=26
   
   echo "Building voice for Android platform ${TARGET}"
   
@@ -62,10 +64,13 @@ do
   mkdir -p ${VOICE_OUTPUT_DIR}/${TARGET}
   cp -v lib*.so ${VOICE_OUTPUT_DIR}/${TARGET}/
   cp -v voice_driver.h ${VOICE_OUTPUT_DIR}/${TARGET}/
-  ${STRIP} --strip-debug ${VOICE_OUTPUT_DIR}/${TARGET}/*.so
-done
+  # Leave out stripping of symbols for development
+  # ${STRIP} --strip-debug ${VOICE_OUTPUT_DIR}/${TARGET}/*.so
 
-make clean
+  # replace md5sum of corresponding file section of voice_info.json
+  MD5SUM=$(md5sum ${VOICE_OUTPUT_DIR}/${TARGET}/*.so | cut -d ' ' -f 1)
+  sed -i -e "s/MD5SUM_${TARGET}/${MD5SUM}/g" ${VOICE_OUTPUT_DIR}/voice_info.json
+done
 
 popd
 
