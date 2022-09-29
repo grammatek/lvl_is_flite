@@ -25,7 +25,8 @@ static ssize_t voice_drv_phones_to_pcm(const char *phonemes,
 /**
  * Private voice driver structure
  */
-struct voice_drv_priv_t {
+struct __attribute__((aligned(8))) voice_drv_priv_t {
+    uint64_t reserved[4];
     cst_voice* v;
 };
 
@@ -33,7 +34,8 @@ struct voice_drv_priv_t {
 
 void* voice_driver_init()
 {
-    struct voice_drv_priv_t* drv_priv = (struct voice_drv_priv_t*) malloc(sizeof(struct voice_drv_priv_t));
+    struct voice_drv_priv_t* drv_priv = NULL;
+    posix_memalign((void **) &drv_priv, sizeof(uint64_t), sizeof(struct voice_drv_priv_t));
     if (drv_priv == NULL)
     {
         fprintf(stderr, "malloc() returned NULL!\n");

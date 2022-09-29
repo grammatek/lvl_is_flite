@@ -28,7 +28,7 @@ enum voice_drv_bit_depth_e
  * voice driver info struct.
  * @note: It's important, that the size of it never changes !
  */
-struct voice_drv_info_t
+struct __attribute__((aligned(8))) voice_drv_info_t
 {
     // voice version, encoded as hex in major/minor/patch
     // major/minor/patch corresponds to the following 3 bytes:
