@@ -80,7 +80,7 @@ Due to serious limitations of Flite in terms of handling phoneme names, we use a
 
 </details>
 
-In addition to these SAMPA phonemes, the token 'pau' is used to indicate silence at the phone level, whereas '<sil>' is used at the word level.
+In addition to these SAMPA phonemes, the token `pau` is used to indicate silence at the phone level, whereas `<sil>` is used at the word level.
 
 When generating `<voice_dir>/festvox/lexicon.scm` this mapping needs to be (as of yet, manually) applied to the outputs after the G2P step is run.
 
