@@ -33,6 +33,8 @@ do
   export NM=$ANDROID_NDK_TOOLCHAIN/bin/nm
   export RANLIB=$ANDROID_NDK_TOOLCHAIN/bin/llvm-ranlib
   export STRIP=$ANDROID_NDK_TOOLCHAIN/bin/llvm-strip
+  #export CFLAGS="$CFLAGS -fpic -O3 -DANDROID --sysroot="$ANDROID_NDK_TOOLCHAIN/sysroot"
+  
   # Set this to your minSdkVersion.
   export API=26
   

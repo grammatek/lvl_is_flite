@@ -56,9 +56,14 @@ then
    exit 1
 fi
 
+# Seems to be fine for Ugla
 FEMALE_ARGS='-min 0.00333 -max 0.0075 -def 0.006 -wave_end -lx_lf 220 -lx_lo 121 -lx_hf 80 -lx_ho 51 -med_o 0'
 
-PM_ARGS='-min 0.0057 -max 0.012 -def 0.01 -wave_end -lx_lf 140 -lx_lo 111 -lx_hf 80 -lx_ho 51 -med_o 0'
+# Original settings
+# NOTE: lx_lo and lx_ho (order of the cutoff frequencies) MUST be an odd number
+# PM_ARGS='-min 0.0057 -max 0.012 -def 0.01 -wave_end -lx_lf 140 -lx_lo 111 -lx_hf 80 -lx_ho 51 -med_o 0'
+# Experimental - Álfur
+PM_ARGS='-min 0.004 -max 0.012 -def 0.01 -wave_end -lx_lf 140 -lx_lo 71 -lx_hf 80 -lx_ho 51 -med_o 0'
 
 PROMPTFILE=etc/txt.done.data
 if [ $# = 1 ]
@@ -71,11 +76,27 @@ while read i
 do
    fname=$i
    echo $i PM_WAVE
+   # ABN: already downsampled and normalized in get_wavs! If it turns out this is 
+   # needed anyway, remove the change to use and rm tmp$$.wav again below
    $ESTDIR/bin/ch_wave -scaleN 0.9 wav/$i.wav -F 16000 -o tmp$$.wav
+
    # You may (or may not) require -inv and many of the parameters here
    # may be worth modifying, see the section on Extracting pitchmarks from
    # waveforms in the document
+
+   # Male
    $ESTDIR/bin/pitchmark tmp$$.wav -o pm/$fname.pm -otype est $PM_ARGS -fill
+   #$ESTDIR/bin/pitchmark wav/$i.wav -o pm/$fname.pm -otype est $PM_ARGS -fill
+   # Female
+   # $ESTDIR/bin/pitchmark tmp$$.wav -o pm/$fname.pm -otype est $FEMALE_ARGS -fill
+   # $ESTDIR/bin/pitchmark wav/$i.wav -o pm/$fname.pm -otype est $FEMALE_ARGS -fill
+
+   # Testing - no fill
+   # Male
+    #$ESTDIR/bin/pitchmark tmp$$.wav -o pm/$fname.pm -otype est $PM_ARGS
+    #$ESTDIR/bin/pitchmark wav/$i.wav -o pm/$fname.pm -otype est $PM_ARGS
+   # Female
+   #$ESTDIR/bin/pitchmark tmp$$.wav -o pm/$fname.pm -otype est $FEMALE_ARGS
    rm -f tmp$$.wav
 done
 
