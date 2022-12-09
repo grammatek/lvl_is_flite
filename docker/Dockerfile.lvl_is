@@ -1,4 +1,4 @@
-FROM festvox-build-tools:latest
+FROM harbour.grammatek.com/sim/festvox-build-tools:latest
 
 ENV LC_ALL C.UTF-8
 

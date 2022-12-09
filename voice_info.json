@@ -1,5 +1,5 @@
 {
-"Description": "Álfur voice for release 0.1 (M9)",
+"Description": "Álfur voice for release 0.2",
 "Voices" : [
   {
     "Name": "Álfur hratt",
@@ -9,7 +9,7 @@
     "LanguageName": "Íslenska",
     "Gender": "male",
     "Type": "flite",
-    "Version": "0.1",
+    "Version": "0.2",
     "RTF": "100",
     "Quality": "3",
     "Files": [
