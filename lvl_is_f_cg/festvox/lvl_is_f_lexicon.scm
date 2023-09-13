@@ -313,15 +313,17 @@ finallist)
 ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(define (lvl_is::postlex_rule1 utt)
-  "(lvl_is::postlex_rule1 utt)
-A postlexical rule form correcting phenomena over word boundaries."
-  (mapcar
-   (lambda (s)
-     ;; do something
-     )
-   (utt.relation.items utt 'Segment))
-   utt)
+; ABN: commented out below code, no postlex rules in place
+
+;(define (lvl_is::postlex_rule1 utt)
+;  "(lvl_is::postlex_rule1 utt)
+;A postlexical rule form correcting phenomena over word boundaries."
+;  (mapcar
+;   (lambda (s)
+;     ;; do something
+;     )
+;   (utt.relation.items utt 'Segment))
+;   utt)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
@@ -329,15 +331,20 @@ A postlexical rule form correcting phenomena over word boundaries."
 ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+; ABN: changes from generated code, set lexicon file and str_phone_map
+
 (lex.create "lvl_is")
 (lex.set.phoneset "lvl_is")
 (lex.set.lts.method 'lvl_is_lts_function)
-(if (probe_file (path-append lvl_is_f::dir "festvox/lvl_is_lex.out"))
-    (lex.set.compile.file (path-append lvl_is_f::dir 
-                                       "festvox/lvl_is_lex.out")))
+(lex.set.compile.file "festvox/lexicon.scm")
+
 (lvl_is_addenda)
 (if (probe_file (path-append lvl_is_f::dir "festvox/lvl_is_addenda.scm"))
     (load (path-append lvl_is_f::dir "festvox/lvl_is_addenda.scm")))
+
+(set! str_phone_map
+  (load "festvox/lvl_is_v0_sampa.scm" t)
+)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
@@ -351,7 +358,8 @@ Set up the lexicon for lvl_is."
   (lex.select "lvl_is")
 
   ;; Post lexical rules
-  (set! postlex_rules_hooks (list lvl_is::postlex_rule1))
+  ; ABN: no post lexical rules for icelandic
+  ;(set! postlex_rules_hooks (list lvl_is::postlex_rule1))
 )
 
 (define (lvl_is_f::reset_lexicon)
