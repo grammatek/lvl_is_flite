@@ -31524,7 +31524,7 @@ MNCL
 ("æ" nil (((aii ) 1)))
 ("æddi" nil (((ai ) 1) ((t I ) 0)))
 ("æddum" nil (((ai ) 1) ((t Y m ) 0)))
-("æf" nil (((ai v ) 1)))
+("æf" nil (((aii f ) 1)))
 ("æfa" nil (((aii ) 1) ((v a ) 0)))
 ("æfing" nil (((aii ) 1) ((v i N k ) 0)))
 ("æfingakennsla" nil (((aii ) 1) ((v i N ) 0) ((k a ) 0) ((ch E n s t ) 0) ((l a ) 0)))
