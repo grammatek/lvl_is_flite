@@ -28,11 +28,8 @@ $ ./extract_wavs.sh
 Create some folders, since the voice building process fails if there are certain folders missing.
 
 ```
-$ mkdir prompt-utt lab pm_unfilled prompt-lab f0 ccoefs
+$ ./setup_cg.sh
 ```
-
-Also make sure the following folders exist: festival/coeffs festival/disttabs festival/dur/feats festival/dur/tree
-festival/feats festival/trees festival/utts festival/utts_hmm
 
 Now you are all set up to start building a clustergen voice.
 
