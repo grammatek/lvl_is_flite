@@ -1,0 +1,68 @@
+#!/bin/sh
+
+###############################################
+#
+# Builds a random forests voice on top of build_cg_voice and do_mixed_excitation.
+# This is a part of the complete build_cg_rfs_voice script.
+#
+###############################################
+
+## Build 20 random forests on params  [ 2 hrs ]
+mv festvox/clustergen.scm festvox/clustergen.scm.xxx
+cat festvox/clustergen.scm.xxx |
+sed 's/mcep_clustersize 50/mcep_clustersize 15/' |
+sed 's/f0_clustersize 200/f0_clustersize 150/' |
+sed 's/cg:rfs nil/cg:rfs 20/' |
+cat >festvox/clustergen.scm
+./bin/do_clustergen parallel cluster etc/txt.done.data.train
+
+## Will generate 20 trees for each HMM state in all_rf/
+## Put the random forests together into full models (and duplicate
+## trees if there are any missing)
+./bin/build_rfs rf_post_build
+
+## Do 20 random forests on duration [ 1 hrs 30min ]
+## note we don't need to set anything in clustergen.scm to do the build
+## but lets limit how many (param) rf_models are loaded during the
+## duration build
+echo "01" >rf_models/mlist
+echo "01" >rf_models/mlistf0
+./bin/build_rfs build_dur_rfs
+## Will generate 20 models in dur_rf_models/
+
+## Find best subset of trees for duration   [ 10 mins ]
+./bin/build_rfs minimize_rfs_dur
+## Will generate scores for best N models in mlist_dur.betters
+## Take best 3 dur models (this might not be optimal)
+tail -6 mlist_dur.betters | head -1 >dur_rf_models/mlist
+
+## Find best 3 trees for params             [ 2 hrs / 10 hrs ]
+./bin/build_rfs minimize_rfs_mcep_3
+## Take best 3 param models (this might not be optimal)
+tail -1 mlist.best.all | awk '{print $1,$2,$3}' >rf_models/mlist
+
+## Find best 3 trees for f0             [ 2 hrs / 10 hrs ]
+./bin/build_rfs minimize_rfs_f0_3
+## Take best 3 f0 models (this might not be optimal)
+tail -1 mlistf0.best.all | awk '{print $1,$2,$3}' >rf_models/mlistf0
+
+## This second one (optional to above technique) does a greater search
+## but gives the same results as the above -- but it'll give you information
+## to know if you want 4 or 5 models rather than 3
+#./bin/build_rfs minimize_rfs_mcep
+## Will generate scores for best N models in mlist.best.all/mlist.betters
+## Selection line if you used minimize_rfs_mcep rather than minimize_rfs_mcep_3
+#tail -6 mlist.betters | head -1 >rf_models/mlist
+
+# Now we can switch on rf dur, it'll get the name/number of models to load
+# from dur_rf_models/mlist which is set above
+mv festvox/clustergen.scm festvox/clustergen.scm.xxx
+cat festvox/clustergen.scm.xxx |
+sed 's/cg:rfs_dur nil/cg:rfs_dur 20/' |
+cat >festvox/clustergen.scm
+
+#  Generate some test examples
+./bin/do_clustergen cg_test resynth cgp_rf3 etc/txt.done.data.test >mcd-rf3.out
+./bin/do_clustergen parallel utt_by_utt_tts etc/txt.done.data.test tts_rf3
+rm -rf test/tts_rf3
+mv test/all test/tts_rf3

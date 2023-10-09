@@ -1,0 +1,48 @@
+#!/bin/sh
+
+###############################################
+#
+# Add mixed excitation on top of a clustergen voice build with build_cg_voice.
+# This is a part of the complete build_cg_rfs_voice script.
+#
+###############################################
+
+## set mixed_excitation  [ 20 mins ]
+mv festvox/clustergen.scm festvox/clustergen.scm.xxx
+cat festvox/clustergen.scm.xxx |
+sed 's/mixed_excitation nil/mixed_excitation t/' |
+cat >festvox/clustergen.scm
+
+./bin/do_clustergen parallel str_sptk
+./bin/do_clustergen parallel combine_coeffs_me
+./bin/do_clustergen parallel cluster etc/txt.done.data.train
+
+## Improve the labels a bit   [ 5 hrs ]
+## But you can skip this part if you create ml/stop before you run the
+## whole script
+if [ ! -f ml/stop ]
+then
+   ./bin/do_move_label_me parallel 10
+   ./bin/do_move_label_me parallel select
+   ./bin/do_clustergen parallel cluster etc/txt.done.data.train
+   ## Will generate a summary of each pass in ml/summary
+   cat ml/summary
+fi
+
+#  Generate some test examples
+./bin/do_clustergen parallel utt_by_utt_tts etc/txt.done.data.test tts_base
+rm -rf test/tts_base
+mv test/all test/tts_base
+
+## Build basic flite voice
+$FLITEDIR/tools/setup_flite
+./bin/build_flite
+( cd flite;
+  make;
+  make voicedump;
+  $FLITEDIR/bin/flite -voice ./*.flitevox "hello world" hw.wav;
+  # Should give a flitevox voice file and a generated waveform file
+  ls -al *.flitevox *.wav;
+  cd ..
+)
+mv flite flite_base
