@@ -97,8 +97,6 @@
    (OO  vowel 0 0 0 0 back      openmid  rounded 0         0    0       long)
    (a   vowel 0 0 0 0 back      open     unrounded 0         0    0       short)
    (aa  vowel 0 0 0 0 back      open     unrounded 0         0    0       long)
-   (Yi  diph 0 0 0 0 front     nearclose rounded front  close unrounded short)
-   (Oi  diph  0 0 0 0 back      openmid  rounded front     close unrounded short)
    (ou  diph  0 0 0 0 back      openmid  rounded back      close rounded short)
    (ouu diph  0 0 0 0 back      openmid  rounded back      close rounded long)
    (ai  diph  0 0 0 0 back      open     unrounded front     close unrounded short)

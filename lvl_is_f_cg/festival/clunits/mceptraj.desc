@@ -2,19 +2,19 @@
 ( occurid trajectory )
 ( num_frames ignore int)
 ( name 
-C_1 C_2 C_3 D_1 D_2 D_3 E_1 E_2 E_3 EE_1 EE_2 EE_3 G_1 G_2 G_3 I_1 I_2 I_3 II_1 II_2 II_3 J_1 J_2 J_3 N_1 N_2 N_3 Nz_1 Nz_2 Nz_3 O_1 O_2 O_3 OO_1 OO_2 OO_3 T_1 T_2 T_3 Y_1 Y_2 Y_3 YY_1 YY_2 YY_3 Yi_1 Yi_2 Yi_3 a_1 a_2 a_3 aa_1 aa_2 aa_3 ai_1 ai_2 ai_3 aii_1 aii_2 aii_3 au_1 au_2 au_3 auu_1 auu_2 auu_3 c_1 c_2 c_3 ch_1 ch_2 ch_3 ei_1 ei_2 ei_3 eii_1 eii_2 eii_3 f_1 f_2 f_3 h_1 h_2 h_3 i_1 i_2 i_3 ii_1 ii_2 ii_3 j_1 j_2 j_3 k_1 k_2 k_3 kh_1 kh_2 kh_3 l_1 l_2 l_3 lz_1 lz_2 lz_3 m_1 m_2 m_3 mz_1 mz_2 mz_3 n_1 n_2 n_3 nz_1 nz_2 nz_3 oe_1 oe_2 oe_3 oee_1 oee_2 oee_3 oei_1 oei_2 oei_3 oeii_1 oeii_2 oeii_3 ou_1 ou_2 ou_3 ouu_1 ouu_2 ouu_3 p_1 p_2 p_3 pau_1 pau_2 pau_3 ph_1 ph_2 ph_3 r_1 r_2 r_3 rz_1 rz_2 rz_3 s_1 s_2 s_3 pau_5 t_1 t_2 t_3 th_1 th_2 th_3 u_1 u_2 u_3 uu_1 uu_2 uu_3 v_1 v_2 v_3 x_1 x_2 x_3 
+C_1 C_2 C_3 D_1 D_2 D_3 E_1 E_2 E_3 EE_1 EE_2 EE_3 G_1 G_2 G_3 I_1 I_2 I_3 II_1 II_2 II_3 J_1 J_2 J_3 N_1 N_2 N_3 Nz_1 Nz_2 Nz_3 O_1 O_2 O_3 OO_1 OO_2 OO_3 T_1 T_2 T_3 Y_1 Y_2 Y_3 YY_1 YY_2 YY_3 a_1 a_2 a_3 aa_1 aa_2 aa_3 ai_1 ai_2 ai_3 aii_1 aii_2 aii_3 au_1 au_2 au_3 auu_1 auu_2 auu_3 c_1 c_2 c_3 ch_1 ch_2 ch_3 ei_1 ei_2 ei_3 eii_1 eii_2 eii_3 f_1 f_2 f_3 h_1 h_2 h_3 i_1 i_2 i_3 ii_1 ii_2 ii_3 j_1 j_2 j_3 k_1 k_2 k_3 kh_1 kh_2 kh_3 l_1 l_2 l_3 lz_1 lz_2 lz_3 m_1 m_2 m_3 mz_1 mz_2 mz_3 n_1 n_2 n_3 nz_1 nz_2 nz_3 oe_1 oe_2 oe_3 oee_1 oee_2 oee_3 oei_1 oei_2 oei_3 oeii_1 oeii_2 oeii_3 ou_1 ou_2 ou_3 ouu_1 ouu_2 ouu_3 p_1 p_2 p_3 pau_1 pau_2 pau_3 ph_1 ph_2 ph_3 r_1 r_2 r_3 rz_1 rz_2 rz_3 s_1 s_2 s_3 pau_5 t_1 t_2 t_3 th_1 th_2 th_3 u_1 u_2 u_3 uu_1 uu_2 uu_3 v_1 v_2 v_3 x_1 x_2 x_3
 "0"
 )
 ( R:HMMstate.p.name
-C_1 C_2 C_3 D_1 D_2 D_3 E_1 E_2 E_3 EE_1 EE_2 EE_3 G_1 G_2 G_3 I_1 I_2 I_3 II_1 II_2 II_3 J_1 J_2 J_3 N_1 N_2 N_3 Nz_1 Nz_2 Nz_3 O_1 O_2 O_3 OO_1 OO_2 OO_3 T_1 T_2 T_3 Y_1 Y_2 Y_3 YY_1 YY_2 YY_3 Yi_1 Yi_2 Yi_3 a_1 a_2 a_3 aa_1 aa_2 aa_3 ai_1 ai_2 ai_3 aii_1 aii_2 aii_3 au_1 au_2 au_3 auu_1 auu_2 auu_3 c_1 c_2 c_3 ch_1 ch_2 ch_3 ei_1 ei_2 ei_3 eii_1 eii_2 eii_3 f_1 f_2 f_3 h_1 h_2 h_3 i_1 i_2 i_3 ii_1 ii_2 ii_3 j_1 j_2 j_3 k_1 k_2 k_3 kh_1 kh_2 kh_3 l_1 l_2 l_3 lz_1 lz_2 lz_3 m_1 m_2 m_3 mz_1 mz_2 mz_3 n_1 n_2 n_3 nz_1 nz_2 nz_3 oe_1 oe_2 oe_3 oee_1 oee_2 oee_3 oei_1 oei_2 oei_3 oeii_1 oeii_2 oeii_3 ou_1 ou_2 ou_3 ouu_1 ouu_2 ouu_3 p_1 p_2 p_3 pau_1 pau_2 pau_3 ph_1 ph_2 ph_3 r_1 r_2 r_3 rz_1 rz_2 rz_3 s_1 s_2 s_3 pau_5 t_1 t_2 t_3 th_1 th_2 th_3 u_1 u_2 u_3 uu_1 uu_2 uu_3 v_1 v_2 v_3 x_1 x_2 x_3 
+C_1 C_2 C_3 D_1 D_2 D_3 E_1 E_2 E_3 EE_1 EE_2 EE_3 G_1 G_2 G_3 I_1 I_2 I_3 II_1 II_2 II_3 J_1 J_2 J_3 N_1 N_2 N_3 Nz_1 Nz_2 Nz_3 O_1 O_2 O_3 OO_1 OO_2 OO_3 T_1 T_2 T_3 Y_1 Y_2 Y_3 YY_1 YY_2 YY_3 a_1 a_2 a_3 aa_1 aa_2 aa_3 ai_1 ai_2 ai_3 aii_1 aii_2 aii_3 au_1 au_2 au_3 auu_1 auu_2 auu_3 c_1 c_2 c_3 ch_1 ch_2 ch_3 ei_1 ei_2 ei_3 eii_1 eii_2 eii_3 f_1 f_2 f_3 h_1 h_2 h_3 i_1 i_2 i_3 ii_1 ii_2 ii_3 j_1 j_2 j_3 k_1 k_2 k_3 kh_1 kh_2 kh_3 l_1 l_2 l_3 lz_1 lz_2 lz_3 m_1 m_2 m_3 mz_1 mz_2 mz_3 n_1 n_2 n_3 nz_1 nz_2 nz_3 oe_1 oe_2 oe_3 oee_1 oee_2 oee_3 oei_1 oei_2 oei_3 oeii_1 oeii_2 oeii_3 ou_1 ou_2 ou_3 ouu_1 ouu_2 ouu_3 p_1 p_2 p_3 pau_1 pau_2 pau_3 ph_1 ph_2 ph_3 r_1 r_2 r_3 rz_1 rz_2 rz_3 s_1 s_2 s_3 pau_5 t_1 t_2 t_3 th_1 th_2 th_3 u_1 u_2 u_3 uu_1 uu_2 uu_3 v_1 v_2 v_3 x_1 x_2 x_3
 "0"
 )
 ( R:HMMstate.n.name
-C_1 C_2 C_3 D_1 D_2 D_3 E_1 E_2 E_3 EE_1 EE_2 EE_3 G_1 G_2 G_3 I_1 I_2 I_3 II_1 II_2 II_3 J_1 J_2 J_3 N_1 N_2 N_3 Nz_1 Nz_2 Nz_3 O_1 O_2 O_3 OO_1 OO_2 OO_3 T_1 T_2 T_3 Y_1 Y_2 Y_3 YY_1 YY_2 YY_3 Yi_1 Yi_2 Yi_3 a_1 a_2 a_3 aa_1 aa_2 aa_3 ai_1 ai_2 ai_3 aii_1 aii_2 aii_3 au_1 au_2 au_3 auu_1 auu_2 auu_3 c_1 c_2 c_3 ch_1 ch_2 ch_3 ei_1 ei_2 ei_3 eii_1 eii_2 eii_3 f_1 f_2 f_3 h_1 h_2 h_3 i_1 i_2 i_3 ii_1 ii_2 ii_3 j_1 j_2 j_3 k_1 k_2 k_3 kh_1 kh_2 kh_3 l_1 l_2 l_3 lz_1 lz_2 lz_3 m_1 m_2 m_3 mz_1 mz_2 mz_3 n_1 n_2 n_3 nz_1 nz_2 nz_3 oe_1 oe_2 oe_3 oee_1 oee_2 oee_3 oei_1 oei_2 oei_3 oeii_1 oeii_2 oeii_3 ou_1 ou_2 ou_3 ouu_1 ouu_2 ouu_3 p_1 p_2 p_3 pau_1 pau_2 pau_3 ph_1 ph_2 ph_3 r_1 r_2 r_3 rz_1 rz_2 rz_3 s_1 s_2 s_3 pau_5 t_1 t_2 t_3 th_1 th_2 th_3 u_1 u_2 u_3 uu_1 uu_2 uu_3 v_1 v_2 v_3 x_1 x_2 x_3 
+C_1 C_2 C_3 D_1 D_2 D_3 E_1 E_2 E_3 EE_1 EE_2 EE_3 G_1 G_2 G_3 I_1 I_2 I_3 II_1 II_2 II_3 J_1 J_2 J_3 N_1 N_2 N_3 Nz_1 Nz_2 Nz_3 O_1 O_2 O_3 OO_1 OO_2 OO_3 T_1 T_2 T_3 Y_1 Y_2 Y_3 YY_1 YY_2 YY_3 a_1 a_2 a_3 aa_1 aa_2 aa_3 ai_1 ai_2 ai_3 aii_1 aii_2 aii_3 au_1 au_2 au_3 auu_1 auu_2 auu_3 c_1 c_2 c_3 ch_1 ch_2 ch_3 ei_1 ei_2 ei_3 eii_1 eii_2 eii_3 f_1 f_2 f_3 h_1 h_2 h_3 i_1 i_2 i_3 ii_1 ii_2 ii_3 j_1 j_2 j_3 k_1 k_2 k_3 kh_1 kh_2 kh_3 l_1 l_2 l_3 lz_1 lz_2 lz_3 m_1 m_2 m_3 mz_1 mz_2 mz_3 n_1 n_2 n_3 nz_1 nz_2 nz_3 oe_1 oe_2 oe_3 oee_1 oee_2 oee_3 oei_1 oei_2 oei_3 oeii_1 oeii_2 oeii_3 ou_1 ou_2 ou_3 ouu_1 ouu_2 ouu_3 p_1 p_2 p_3 pau_1 pau_2 pau_3 ph_1 ph_2 ph_3 r_1 r_2 r_3 rz_1 rz_2 rz_3 s_1 s_2 s_3 pau_5 t_1 t_2 t_3 th_1 th_2 th_3 u_1 u_2 u_3 uu_1 uu_2 uu_3 v_1 v_2 v_3 x_1 x_2 x_3
 "0"
 )
 ( R:segstate.parent.p.name
-C D E EE G I II J N Nz O OO T Y YY Yi a aa ai aii au auu c ch ei eii f h i ii j k kh l lz m mz n nz oe oee oei oeii ou ouu p pau ph r rz s ssil t th u uu v x 
+C D E EE G I II J N Nz O OO T Y YY a aa ai aii au auu c ch ei eii f h i ii j k kh l lz m mz n nz oe oee oei oeii ou ouu p pau ph r rz s ssil t th u uu v x
 "0"
 )
 ( R:segstate.parent.R:segstate.parent.p.ph_vc ignore consonant vowel diph silence 0 )
@@ -30,7 +30,7 @@ C D E EE G I II J N Nz O OO T Y YY Yi a aa ai aii au auu c ch ei eii f h i ii j 
 ( R:segstate.parent.R:segstate.parent.p.ph_droundness2 ignore unrounded rounded 0 )
 ( R:segstate.parent.R:segstate.parent.p.ph_vlength ignore long short 0 )
 ( R:segstate.parent.n.name ignore
-C D E EE G I II J N Nz O OO T Y YY Yi a aa ai aii au auu c ch ei eii f h i ii j k kh l lz m mz n nz oe oee oei oeii ou ouu p pau ph r rz s ssil t th u uu v x 
+C D E EE G I II J N Nz O OO T Y YY a aa ai aii au auu c ch ei eii f h i ii j k kh l lz m mz n nz oe oee oei oeii ou ouu p pau ph r rz s ssil t th u uu v x
 "0"
 )
 ( R:segstate.parent.R:segstate.parent.n.ph_vc ignore consonant vowel diph silence 0 )
@@ -107,7 +107,7 @@ final
 mid
 )
 ( R:segstate.parent.pp.name ignore
-C D E EE G I II J N Nz O OO T Y YY Yi a aa ai aii au auu c ch ei eii f h i ii j k kh l lz m mz n nz oe oee oei oeii ou ouu p pau ph r rz s ssil t th u uu v x 
+C D E EE G I II J N Nz O OO T Y YY a aa ai aii au auu c ch ei eii f h i ii j k kh l lz m mz n nz oe oee oei oeii ou ouu p pau ph r rz s ssil t th u uu v x
 "0"
 )
 ( R:segstate.parent.R:segstate.parent.pp.ph_vc ignore consonant vowel diph silence 0 )
