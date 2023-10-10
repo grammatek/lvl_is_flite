@@ -12,16 +12,35 @@ the voice building process.
 
 For full utterance list for the Álfur voice, see the Talrómur dataset.
 
+### Setup
+
+Start by creating a file `setup/exports.sh` using `setup/exports_template.sh` as an example. Then run:
+
+```
+# Set necessary environment variables
+$ source ./setup/exports.sh
+```
+
+This recipe relies on Festival, Festvox, and other speech tools to be installed as shown in `setup/install_festival_and_friends.sh`.
+Some of the libraries are forked from the original repositories and contain custom changes for Icelandic.
+Before installing Festival and friends, make sure all prerequisites are installed on your system as listed in
+`setup/prerequisites.sh`
+
+```
+$ # Install Festival, Festvox, Speech Tools, SPTK and Flite
+$ ./setup/install_festival_and_friends.sh
+`````
+
 ### Load audio
 
 We assume that the full dataset is stored outside this repository. To load the audio files that correspond to
-the utterances in etc/txt.done.data, create a directory 'wav' and load the .wav files from your data storage:
-Make sure the ESTDIR environment variable is set before running extract_wavs.sh, e.g. `/home/user/tts/speech_tools/`
+the utterances in etc/txt.done.data, run:
 
 ```
-$ export DATADIR=<path/to/talromur/f>
 $ ./extract_wavs.sh
 ```
+
+If you wish to train on another utterance collection, update `etc/txt.done.data` accordingly.
 
 ### Prepare for voice building
 
@@ -32,10 +51,6 @@ $ ./setup_cg.sh
 ```
 
 Now you are all set up to start building a clustergen voice.
-
-Export the FESTVOXDIR environment variable to Festvox home, e.g. `home/user/tts/festvox`
-Export the SPTKDIR environment variable to SPTK home IF using SPTK. SPTK is needed for random forests but can
-be omitted for baseline clustergen voice building.
 
 If building an Icelandic voice, DO NOT follow the first step of the Festival documentation by calling 
 ``$FESTVOXDIR/src/clustergen/setup_cg <INST> <LANG> <VOICENAME>`` since it will override Icelandic customization
