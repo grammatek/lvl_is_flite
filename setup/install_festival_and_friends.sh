@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ##########################################################
 #
@@ -13,6 +13,7 @@
 #
 ###########################################################
 
+set -eo pipefail
 pushd $TTS_HOME
 
 # Create home directories and fetch speech packages
@@ -37,7 +38,7 @@ wget http://festvox.org/packed/SPTK-3.6.tar.gz && \
     tar zxvf SPTK-3.6.tar.gz && \
     mkdir SPTK && \
     patch -p0 <festvox/src/clustergen/SPTK-3.6.patch && \
-    cd SPTK-3.6 && \
+    pushd SPTK-3.6 && \
     ./configure --prefix=$SPTKDIR && \
     make && \
     make install
@@ -59,7 +60,8 @@ pushd $TTS_HOME/festvox
 popd
 
 # Setup & build Flite for Linux, Festival needs executables built here for exporting a Flite voice
-pushd $TTS_HOME
 git clone https://github.com/grammatek/Flite/ && cd Flite && git checkout android-grammatek \
    && ./configure && make
+
+# back to where I came from
 popd
