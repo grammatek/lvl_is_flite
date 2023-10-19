@@ -998,7 +998,8 @@ then
     if grep -q "state names" festival/clunits/mcep.desc-old
     then
        true
-    elif [ -f ${FESTVOXDIR}/src/vox_files/${FV_LANG}/mcep.desc ]
+    fi
+    if [ -f ${FESTVOXDIR}/src/vox_files/${FV_LANG}/mcep.desc ]
     then
        cp -p $FESTVOXDIR/src/vox_files/${FV_LANG}/mcep.desc festival/clunits/mcep.desc-old
     else
